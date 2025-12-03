@@ -1,0 +1,83 @@
+1. Connect SSH
+systemctl start sshd
+ip -c a
+passwd
+
+2. Partition and format disks
+lsblk
+cfdisk /dev/nvme0n1
+  3 Partiotions (boot, /root, /home)
+mkfs.fat -F 32 /dev/nvme0n1p1
+mkfs.ext4 /dev/nvme0n1p2 
+mkfs.ext4 /dev/nvme0n1p3 
+
+3. Mount file systems
+mount --mkdir /dev/nvme0n1p1 /mnt/boot/efi
+mount /dev/nvme0n1p2 /mnt
+mkdir /mnt/home
+mount /dev/nvme0n1p3 /mnt/home
+
+4. Run reflector
+reflector --verbose -c CH --protocol https --sort rate --latest 10 --download-timeout 5 --save /etc/pacman.d/mirrorlist
+
+5. Get strapped
+pacstrap -K /mnt base base-devel linux-zen linux-firmware intel-ucode iwd dhcpcd git sudo grub efibootmgr nano
+
+6. Start stabbing
+genfstab -U /mnt >> /mnt/etc/fstab
+
+7. Groot
+arch-chroot /mnt
+
+8. Configure timezone
+ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+hwclock --systohc
+
+9. Localize
+nano /etc/locale.gen
+kitty-error:	export TERM=xterm-256color
+
+10. Configure hostname
+nano /etc/hostname
+
+11. Configure users and passwords
+passwd #root
+useradd -m -G wheel <username>
+passwd <username>
+EDITOR=nano visudo
+
+12. Configure zram
+pacman -S zram-generator
+nano /etc/systemd/zram-generator.conf
+
+[zram0]
+
+swapon --show
+systemctl enable --now systemd-zram-setup@zram0.service
+
+13. Configure bootloader
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+14. Finish
+exit
+umount -R /mnt
+reboot
+
+
+
+
+
+1. user
+systemctl enable dhcpcd@wlan0.service
+
+sudo nano /etc/pacman.conf
+uncomment multilib
+
+(Treiber)
+sudo pacman -S linux-firmware mesa
+
+sudo pacman -S hyprland gtk3 xdg-desktop-portal xdg-desktop-portal-hyprland pipewire pipewire-pulse wireplumber kitty seatd
+sudo systemctl enable --now seatd
+
