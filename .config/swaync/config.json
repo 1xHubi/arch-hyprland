@@ -1,0 +1,88 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+
+
+  "control-center-width": 400,
+  "control-center-height": 900, 
+  "control-center-margin-top": 12,
+  "control-center-margin-bottom": 12,
+  "control-center-margin-right": 1,
+  "control-center-margin-left": 1,
+
+  "notification-window-width": 250,
+  "notification-icon-size": 48,
+  "notification-body-image-height": 260,
+  "notification-body-image-width": 200,
+
+  "timeout": 4,
+  "timeout-low": 2,
+  "timeout-critical": 6,
+  
+  "fit-to-screen": true,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 200,
+  "hide-on-clear": false,
+  "hide-on-action": false,
+  
+  "script-fail-notify": true,
+  "scripts": {
+    "example-script": {
+      "exec": "echo 'Do something...'",
+      "urgency": "Normal"
+    }
+  },
+
+  "widgets": [
+    "mpris",
+
+    "buttons-grid",
+
+    "volume",
+    "backlight",
+
+    "dnd",
+    "notifications"
+  ],
+  "widget-config": {
+    "dnd": {
+      "text": "Do not disturb"
+    },
+    "mpris": {
+      "image-size": 100,
+      "image-radius": 10
+    },
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": true
+    },
+    "backlight": {
+      "label": "󰃠",
+      "device": "intel_backlight",
+      "subsystem": "backlight",
+      "min": 5
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "",
+          "command": "kitty iwctl"
+        },
+        {
+          "label": "󰂯",
+          "command": "blueberry"
+        },
+        {
+          "label": "",
+          "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+        },
+        {
+          "label": "",
+          "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+        }
+      ]
+    }
+  }
+}

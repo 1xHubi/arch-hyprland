@@ -1,0 +1,84 @@
+@import "colors.css";
+* {
+    opacity: 0.99;
+    border: none;
+
+    font-family: "Roboto", "JetBrainsMono Nerd Font Propo";
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    min-height: 22.5px;
+    min-width: 30px;
+
+    margin: 0;
+    padding:0;
+}
+
+window#waybar {
+    background: transparent;
+    color: rgb(0, 0, 0);
+}
+
+button{
+    background: inherit;
+}
+button:hover {
+    font-weight: bold;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+  border-radius: 10px;
+}
+tooltip label {
+  color: white;
+}
+
+label.module {
+    background-color: @surface_bright;
+    color: @secondary;
+    
+    border-radius: 10px;
+
+    margin: 0 5px;
+    padding: 0 10px;
+}
+
+#workspaces{
+    background-color: @surface_bright;
+    
+    border-radius: 10px;
+
+    margin: 0 5px;
+    padding: 0 7px;
+}
+#workspaces button {
+    transition: all 350ms ease-in-out;
+
+    color: @secondary;
+
+    border: 3px solid transparent;
+    
+    margin: 0 2.5px;
+ 
+   padding: 0 5px;
+}
+#workspaces button.active{
+    background-color: @secondary;
+    color: @surface_bright;
+
+    border-radius: 10px;
+    
+    min-width: 45px;
+}
+
+#window{
+    background-color: @surface_bright;
+    color: @secondary;
+    
+    border-radius: 10px;
+
+    margin: 0 5px;
+    padding: 0 4px;
+}

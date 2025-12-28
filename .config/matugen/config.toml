@@ -1,0 +1,29 @@
+[config.wallpaper]
+command = "swww"
+arguments = ["img", "--transition-fps", "60", "--transition-type", "any"]
+set = true
+
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/hyprland-colors.conf'
+output_path = '~/.config/hypr/hyprland-colors.conf'
+post_hook = 'hyprctl reload'
+
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
+
+[templates.swaync]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/swaync/colors.css'
+post_hook = 'pkill swaync; swaync &'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/kitty-colors.conf'
+post_hook = 'pkill -SIGUSR1 kitty'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+output_path = '~/.config/rofi/colors.rasi'
