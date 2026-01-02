@@ -72,13 +72,3 @@ label.module {
     
     min-width: 45px;
 }
-
-#window{
-    background-color: @surface_bright;
-    color: @secondary;
-    
-    border-radius: 10px;
-
-    margin: 0 5px;
-    padding: 0 4px;
-}
