@@ -7,35 +7,35 @@
     font-size: 1.2rem;
     font-weight: 700;
 
-    min-height: 22.5px;
-    min-width: 30px;
+    min-height: 0px;
+    min-width: 0px;
 
     margin: 0;
-    padding:0;
+    padding: 0;
 }
 
 window#waybar {
     background: transparent;
-    color: rgb(0, 0, 0);
-}
-
-button{
-    background: inherit;
-}
-button:hover {
-    font-weight: bold;
 }
 
 tooltip {
-  background: rgba(43, 48, 59, 0.5);
-  border: 1px solid rgba(100, 114, 125, 0.5);
-  border-radius: 10px;
+    background: alpha(@surface_bright, 0.75);
+    border-radius: 10px;
 }
 tooltip label {
-  color: white;
+    color: white;
 }
 
 label.module {
+    background-color: @surface_bright;
+    color: @secondary;
+    
+    border-radius: 10px;
+
+    margin: 0 5px;
+    padding: 0 10px;
+}
+.modules-left {
     background-color: @surface_bright;
     color: @secondary;
     
@@ -58,17 +58,28 @@ label.module {
 
     color: @secondary;
 
+    min-width: 30px;
+
     border: 3px solid transparent;
+    border-radius: 10px;
     
-    margin: 0 2.5px;
- 
-   padding: 0 5px;
+    margin: 0 2.5px; 
+    padding: 0 5px;
 }
 #workspaces button.active{
     background-color: @secondary;
     color: @surface_bright;
-
-    border-radius: 10px;
     
     min-width: 45px;
+}
+
+#custom-notification, #clock{
+    margin: 0px;
+    padding: 0px;
+}
+#custom-notification{
+    padding-right: 3.5px;
+}
+#clock{
+    padding-left: 3.5px;
 }

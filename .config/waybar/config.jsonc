@@ -6,9 +6,9 @@
     "margin-right": 12,
     "margin-left": 12,
 
-    "modules-left": ["clock"],
+    "modules-left": ["custom/notification", "clock"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "network", "battery", "custom/notification"],
+    "modules-right": ["pulseaudio", "network", "battery"],
 
     "hyprland/workspaces": {
         "all-outputs": true,
