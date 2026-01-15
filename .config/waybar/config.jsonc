@@ -24,7 +24,7 @@
     "pulseaudio": {
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "",
+        "format-muted": "{volume}% ",
         "format-icons": {
             "headphone": "",
             "default": ["", "", ""]
@@ -33,8 +33,6 @@
     "on-click": "pavucontrol"
     },
     "network": {
-        //bash: ip -c a
-        //networkname 
         "interface": "wlan0",
 
         "format": "{ifname}",
@@ -49,8 +47,12 @@
     },
     "battery": {
         "format": "{capacity}% {icon}",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+        "format-plugged": "{capacity}% 󰂄",
+        "format-charging": "{capacity}% {icon}",
+        "format-icons":{
+            "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+            "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]       
+        }
     },
     "clock": {
         "format": "{:%H:%M}",
