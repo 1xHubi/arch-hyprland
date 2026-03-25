@@ -6,7 +6,7 @@ SYMLINK_PATH="$HOME/.config/hypr/current_wallpaper"
 
 cd "$WALLPAPER_DIR" || exit 1
 
-# === handle spaces name
+# === handle spaces name ===
 IFS=$'\n'
 
 # === ICON-PREVIEW SELECTION WITH ROFI, SORTED BY NEWEST ===
@@ -15,7 +15,7 @@ SELECTED_WALL=$(for a in $(ls  *.jpg *.png *.gif *.jpeg 2>/dev/null); do echo -e
 SELECTED_PATH="$WALLPAPER_DIR/$SELECTED_WALL"
 
 # === SET WALLPAPER ===
-matugen image "$SELECTED_PATH"
+matugen image "$SELECTED_PATH" --prefer darkness
 
 # === CREATE SYMLINK ===
 mkdir -p "$(dirname "$SYMLINK_PATH")"
